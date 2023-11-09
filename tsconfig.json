@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+         "*",
+         "./*",
+         "src/*"
+      ]
+    },
+    "outDir": "./public/",
+    "noImplicitAny": false,
+    "module": "esnext",
+    "target": "ES6",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true
+  }
+}

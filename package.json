@@ -1,0 +1,58 @@
+{
+  "name": "tactic-duel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "browser": {
+    "electron": false
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "start": "node server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.21.0",
+    "@babel/preset-env": "7.20.2",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.21.0",
+    "@types/node": "^18.14.1",
+    "@types/react": "18.0.28",
+    "@types/react-helmet": "^6.1.6",
+    "autoprefixer": "10.4.13",
+    "babel-loader": "9.1.2",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "copy-webpack-plugin": "11.0.0",
+    "css-loader": "6.7.3",
+    "html-webpack-plugin": "5.5.0",
+    "postcss": "^8.4.31",
+    "postcss-loader": "7.0.2",
+    "postcss-preset-env": "8.0.1",
+    "simple-webp-converter": "^1.0.3",
+    "style-loader": "3.3.1",
+    "tailwindcss": "3.2.7",
+    "ts-loader": "9.4.2",
+    "typescript": "4.9.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "5.0.1",
+    "webpack-dev-server": "4.11.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "classnames": "2.3.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-robots-txt": "^1.0.0",
+    "mobx": "^6.8.0",
+    "mobx-react": "^7.6.0",
+    "react": "18.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.8.1"
+  }
+}
