@@ -7,7 +7,7 @@
     "electron": false
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --env production",
     "dev": "webpack serve --mode development",
     "start": "node server"
   },
