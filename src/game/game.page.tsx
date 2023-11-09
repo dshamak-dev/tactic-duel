@@ -11,7 +11,7 @@ import { BattlePage } from "src/battle/battle.page";
 
 const ROUTER = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: <BattlePage />,
   },
 ]);

@@ -15,6 +15,7 @@ module.exports = (env) => {
       asyncChunks: true,
       path: path.resolve(__dirname, buildForlder),
       publicPath: isDevMode ? "/" : "./",
+      clean: true,
     },
     devServer: {
       static: {
