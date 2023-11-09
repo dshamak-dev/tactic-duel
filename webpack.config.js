@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const buildForlder = "public";
+const buildForlder = "docs";
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -10,7 +10,7 @@ module.exports = {
     filename: "[name].[contenthash].js",
     assetModuleFilename: "[name].[contenthash][ext][query]",
     asyncChunks: true,
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, buildForlder),
   },
   devServer: {
     static: {
