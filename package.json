@@ -1,0 +1,12 @@
+{
+  "name": "tactic-duel",
+  "version": "1.0.0",
+  "description": "A duel game with tactic mechanics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

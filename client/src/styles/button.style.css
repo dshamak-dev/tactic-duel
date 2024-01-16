@@ -1,0 +1,11 @@
+.button,
+button {
+  @apply border px-4 py-2 cursor-pointer hover:shadow-md active:shadow-inner;
+}
+
+.button.disabled,
+.button[disabled],
+button.disabled,
+button[disabled] {
+  @apply opacity-40 pointer-events-none;
+}
