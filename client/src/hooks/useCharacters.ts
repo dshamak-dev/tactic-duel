@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserCharacters } from "src/api/user.api";
+import { getAccountCharacters } from "src/api/user.api";
 import { useApi } from "src/support/useApi";
 
 export const useCharacters = () => {
@@ -9,14 +9,18 @@ export const useCharacters = () => {
     dispatch,
   } = useApi({
     request: async () => {
-      const res = await getUserCharacters();
+      const res = await getAccountCharacters();
       return res;
     },
   });
+
+  const update = (value) => {
+    dispatch({ type: "data", value });
+  };
 
   useEffect(() => {
     dispatch();
   }, []);
 
-  return { loading, characters, dispatch };
+  return { loading, characters, dispatch, update };
 };

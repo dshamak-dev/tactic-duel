@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "../",
+    "rootDirs": ["client/src", "core"],
     "paths": {
-      "client/*": ["./client/src/*"],
-      "core/*": ["../core/*"],
+      "client/*": ["client/src/*"],
       "src/*": [
-         "src/*"
+         "client/src/*"
       ]
     },
     "outDir": "./dist/",

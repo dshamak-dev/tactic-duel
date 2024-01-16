@@ -12,7 +12,11 @@ import { findOne } from "./database/database.controls";
 import { createWebsocketServer } from "./websocket/websocket.controller";
 import { userRouter } from "./user/user.router";
 import { battleRouter } from "server/battle/battle.router";
-import { getAuthToken, setAuthToken, validateAuthToken } from "server/support/auth.utils";
+import {
+  getAuthToken,
+  setAuthToken,
+  validateAuthToken,
+} from "server/support/auth.utils";
 import { authRouter } from "server/user/auth.router";
 
 const PORT = process.env.PORT || 3005;
@@ -49,7 +53,7 @@ app.use("/api/*", async (req, res, next) => {
   }
 
   setAuthToken(res, token);
-  
+
   next();
 });
 

@@ -1,4 +1,4 @@
-import { setAuthToken, getAuthToken } from "src/auth/auth.controller";
+import { setAuthToken, getAuthToken, clearAuthToken } from "src/auth/auth.controller";
 import { appConfig } from "src/config";
 import { navigateTo } from "src/support/navigation.utils";
 
@@ -41,14 +41,13 @@ const validateResponseStatus = async (response) => {
 
   const authToken = response.headers.get("Authorization");
 
-  console.log('token renew');
-
   if (authToken) {
     setAuthToken(authToken);
   }
 
   switch (response.status) {
     case 401: {
+      clearAuthToken();
       navigateTo('/signin', { redirect: true })
       throw new Error("Unauthorized");
     }

@@ -13,9 +13,15 @@ authRouter.post(`/auth`, async (req, res) => {
   try {
     const user = await findOne("users", { email });
 
+    if (!user) {
+      return res.status(400).json({ error: "invalid email" });
+    }
+
     const passwordMatch = await bcrypt.compare(password, user.password);
+
     if (!passwordMatch) {
-      return res.status(401).json({ error: "Authentication failed" });
+      console.error("password not match");
+      return res.status(400).json({ error: "invalid password" });
     }
 
     const token = await createAuthToken(user);

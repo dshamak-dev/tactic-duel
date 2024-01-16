@@ -1,9 +1,14 @@
 import { Request, Response } from "express";
-import jwt, { TokenExpiredError } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const _jwtSecret = process.env.JWT_SECRET || "secret";
 
 export const createAuthToken = async (data: any) => {
+  if (!data || !data._id) {
+    console.error('invalid user token', data);
+    return data;
+  }
+
   const token = jwt.sign({ _id: data._id }, _jwtSecret, {
     expiresIn: "1d",
   });
@@ -53,12 +58,14 @@ export const decodeAuthToken = async (token: string | null) => {
 
 export const validateAuthToken = async (token: string | null) => {
   if (!token) {
+    console.error("no token");
     return null;
   }
 
   const decoded = await decodeAuthToken(token);
 
   if (!decoded) {
+    console.error("empty token");
     return null;
   }
 

@@ -64,7 +64,7 @@ module.exports = (env) => {
         src: '/src',
       },
       modules: [path.resolve('./node_modules'), path.resolve('./src')],
-      extensions: ['*', '.js', '.ts', '.tsx'],
+      extensions: ['.*', '.js', '.ts', '.tsx'],
     },
     stats: {
       children: true,

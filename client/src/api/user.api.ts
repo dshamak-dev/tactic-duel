@@ -1,3 +1,4 @@
+import { Character } from "../../../core/character/character.model";
 import { GET, POST_JSON } from "src/support/api.controls";
 
 export const postUser = (data) => {
@@ -30,29 +31,25 @@ export const getAccount = () => {
 };
 
 // Characters
-const mockedUsers = JSON.parse(localStorage.getItem('characters')) || {};
-
-export const getUserCharacters = () => {
-  return Promise.resolve(Object.values(mockedUsers));
-
-  return GET(`/account/characters`).then((res) => res.json());
+export const getAccountCharacters = () => {
+  return GET(`/account/characters`)
+    .then((res) => res.json())
+    .then((res) =>
+      res?.map((it) => {
+        return new Character(it).normalize();
+      })
+    );
 };
-export const postUserCharacter = () => {
-  const characterId = Math.floor(Math.random() * 999);
-  const character = {
-    id: characterId,
-    avatarURL: `https://picsum.photos/id/${characterId}/200/200?grayscale`,
-  };
+export const postAccountCharacter = (data: any) => {
+  return POST_JSON(`/account/characters`, data)
+    .then((res) => res.json())
+    .then((res) => {
+      if (res) {
+        return new Character(res).normalize();
+      }
 
-  mockedUsers[characterId] = character;
-
-  localStorage.setItem('characters', JSON.stringify(mockedUsers));
-
-  return Promise.resolve(character);
-
-  return POST_JSON(`/user-characters`, character).then((res) =>
-    res.json()
-  );
+      return res;
+    });
 };
 // Items
 export const getUserItems = (id) => {
